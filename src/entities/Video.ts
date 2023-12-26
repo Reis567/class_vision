@@ -2,7 +2,7 @@ import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "t
 import { Room } from "./Room";
 
 @Entity('videos')
-export class Videos {
+export class Video {
     @PrimaryGeneratedColumn()
     id:number
 
@@ -12,7 +12,7 @@ export class Videos {
     @Column({type:'text'})
     url:string
 
-    @ManyToOne(()=>Room,room=>room.videos)
+    @ManyToOne(()=>Room,(room)=>room.videos)
     @JoinColumn({name:'room_id'})
     room:Room
 
