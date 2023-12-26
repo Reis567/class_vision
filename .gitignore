@@ -1,2 +1,32 @@
+# Node.js
+node_modules/
+
+# TypeScript
+*.tsbuildinfo
+
+# TypeORM
+dist/
+*.js
+*.js.map
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Dependendo do seu ambiente de desenvolvimento, você pode querer adicionar outras entradas
+# como arquivos temporários, diretórios específicos para ferramentas, etc.
+
+# Configuração local do desenvolvedor (Exemplo: dotenv)
 .env
-/node_modules
+
+# Arquivo de configuração do banco de dados (Exemplo: ormconfig.json)
+ormconfig.json
+
+# Dependendo do seu sistema de controle de versão, você pode querer adicionar arquivos específicos
+# para o controle de versão (Exemplo: .git/ para Git)
+
+# Dependendo do seu ambiente de implantação, você pode querer adicionar outros arquivos ou diretórios
+# que não devem ser incluídos no controle de versão (Exemplo: /build/ para arquivos de construção)
