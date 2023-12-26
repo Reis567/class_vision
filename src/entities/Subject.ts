@@ -4,22 +4,16 @@ import { Room } from "./Room";
 @Entity('subjects')
 export class Subject {
     @PrimaryGeneratedColumn()
-    id:number
+    id: number;
 
-    @Column({type:'text'})
-    name:string
+    @Column({ type: 'text' })
+    name: string;
 
-    @ManyToMany(()=>Room,(room)=>room.subjects)
+    @ManyToMany(() => Room, room => room.subjects)
     @JoinTable({
-        name:'room_subject',
-        joinColumn:{
-            name:'room_id',
-            referencedColumnName:'id'
-        },
-        inverseJoinColumn:{
-            name:'subject_id',
-            referencedColumnName:'id'
-        }
+        name: 'room_subject',
+        joinColumn: { name: 'subject_id', referencedColumnName: 'id' },
+        inverseJoinColumn: { name: 'room_id', referencedColumnName: 'id' },
     })
-    rooms:Room[]
+    rooms: Room[];
 }
