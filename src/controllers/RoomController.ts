@@ -3,6 +3,7 @@ import { StatusCodes } from "http-status-codes";
 import { roomRepository } from "../repositories/RoomRepository";
 import { videoRepository } from "../repositories/VideoRepository";
 import { subjectRepository } from "../repositories/SubjectRepository";
+import { NotFoundError } from "../helpers/api-errors";
 
 export class RoomController {
     async create(req:Request,res:Response){
@@ -22,7 +23,7 @@ export class RoomController {
         const room = await roomRepository.findOneBy({id:Number(idRoom)})
 
         if(!room){
-            return res.status(StatusCodes.NOT_FOUND).json({message:'Aula não existe'})
+            throw new NotFoundError('Aula não existe')
         }
 
         const newVideo = videoRepository.create({
@@ -45,13 +46,13 @@ export class RoomController {
 
         const room = await roomRepository.findOneBy({id:Number(idRoom)})
         if(!room){
-            return res.status(StatusCodes.NOT_FOUND).json({message:'Aula não existe'})
+            throw new NotFoundError('Aula não existe')
         }
 
         const subject = await subjectRepository.findOneBy({id:Number(subject_id)})
 
         if(!subject){
-            return res.status(StatusCodes.NOT_FOUND).json({message:'Disciplina não existe'})
+            throw new NotFoundError('Disciplina não existe ')
         }
 
         const roomUpdate = {

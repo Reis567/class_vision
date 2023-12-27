@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
 import { subjectRepository } from "../repositories/SubjectRepository"
+import { BadRequestError } from "../helpers/api-errors"
 
 
 export class SubjectController {
@@ -8,7 +9,7 @@ export class SubjectController {
         const{name}= req.body
 
         if(!name){
-            return res.status(StatusCodes.BAD_REQUEST).json({mensagem:'o nome é obrigatório !'})
+            throw new BadRequestError('o nome é obrigatório !')
         }
         const newSubject = subjectRepository.create({name})
         await subjectRepository.save(newSubject)
