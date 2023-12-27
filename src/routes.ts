@@ -1,8 +1,14 @@
 import { Router } from "express";
 import { SubjectController } from "./controllers/SubjectControllers";
 import { RoomController } from "./controllers/RoomController";
+import { ApiError } from "./helpers/api-errors";
+import { StatusCodes } from "http-status-codes";
 
 export const routes = Router()
+
+routes.get('/',(req, res)=>{
+    throw new ApiError('Error com statuscodes', StatusCodes.OK)
+})
 
 routes.post('/subject', new SubjectController().create)
 
