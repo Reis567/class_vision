@@ -7,6 +7,9 @@ export const routes = Router()
 routes.post('/subject', new SubjectController().create)
 
 
+
+routes.get('/room', new RoomController().list)
+
 routes.post('/room', new RoomController().create)
 
 
