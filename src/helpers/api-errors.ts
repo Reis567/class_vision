@@ -21,3 +21,9 @@ export class NotFoundError extends ApiError{
         super(message,StatusCodes.NOT_FOUND)
     }
 }
+
+export class UnauthoraError extends ApiError{
+    constructor(message:string){
+        super(message,StatusCodes.UNAUTHORIZED)
+    }
+}
