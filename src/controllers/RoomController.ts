@@ -83,4 +83,20 @@ export class RoomController {
             })
         }
     }
+
+    async list(req:Request,res:Response){
+        try {
+            const rooms = await roomRepository.find({
+                relations:{
+                    subjects:true
+                }
+            })
+            return res.status(StatusCodes.OK).json(rooms)
+        } catch (error) {
+            console.log(error)
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                message:'Internal server error'
+            })
+        }
+    }
 }
