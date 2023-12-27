@@ -8,6 +8,8 @@ export class RoomController {
 
         try {
             const newRoom = roomRepository.create({name, description})
+            await roomRepository.save(newRoom)
+            return res.status(StatusCodes.CREATED).json(newRoom)
             
         } catch (error) {
             console.log(error)
