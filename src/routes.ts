@@ -11,3 +11,5 @@ routes.post('/room', new RoomController().create)
 
 
 routes.post('/room/:idRoom/create', new RoomController().createVideo)
+
+routes.post('/room/:idRoom/subject', new RoomController().roomSubject)

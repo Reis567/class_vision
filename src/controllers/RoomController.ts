@@ -68,10 +68,12 @@ export class RoomController {
                 return res.status(StatusCodes.NOT_FOUND).json({message:'Disciplina não existe'})
             }
 
-            await roomRepository.update(idRoom,{
+            const roomUpdate = {
                 ...room,
                 subjects:[subject]
-            })
+            }
+
+            await roomRepository.save(roomUpdate)
 
             return res.status(StatusCodes.OK).json(room)
         } catch (error) {
