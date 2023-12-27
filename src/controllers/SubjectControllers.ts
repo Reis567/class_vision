@@ -10,14 +10,8 @@ export class SubjectController {
         if(!name){
             return res.status(StatusCodes.BAD_REQUEST).json({mensagem:'o nome é obrigatório !'})
         }
-        try {
-            const newSubject = subjectRepository.create({name})
-            await subjectRepository.save(newSubject)
-            return res.status(StatusCodes.CREATED).json(newSubject)
-            
-        } catch (error) {
-            console.log(error)
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({mensagem:"Internal server error"})
-        }
+        const newSubject = subjectRepository.create({name})
+        await subjectRepository.save(newSubject)
+        return res.status(StatusCodes.CREATED).json(newSubject)
     }
 }
