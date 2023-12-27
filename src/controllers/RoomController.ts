@@ -88,7 +88,8 @@ export class RoomController {
         try {
             const rooms = await roomRepository.find({
                 relations:{
-                    subjects:true
+                    subjects:true,
+                    videos:true
                 }
             })
             return res.status(StatusCodes.OK).json(rooms)
