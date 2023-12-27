@@ -1,7 +1,15 @@
 import express, { NextFunction ,Request,Response} from 'express';
+import { ApiError } from '../helpers/api-errors';
 
-export const ErrorMiddleware = (error:Error, req:Request, res:Response, next:NextFunction)=>{
-    console.log(error)
-    return res.json('Middleware')
+export const ErrorMiddleware = (
+        error:Error&Partial<ApiError>,
+        req:Request,
+        res:Response,
+        next:NextFunction
+    )=>{
+
+    const statusCode = error.statusCode ?? 500
+    const message = error.statusCode ? error.message : 'Internal server Error'
+    return res.status(statusCode).json({message:message})
 
   }

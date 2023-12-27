@@ -7,7 +7,7 @@ import { StatusCodes } from "http-status-codes";
 export const routes = Router()
 
 routes.get('/',(req, res)=>{
-    throw new ApiError('Error com statuscodes', StatusCodes.OK)
+    throw new ApiError('Error da rota', StatusCodes.OK)
 })
 
 routes.post('/subject', new SubjectController().create)
