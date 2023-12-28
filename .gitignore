@@ -9,6 +9,9 @@ dist/
 *.js
 *.js.map
 
+#Jest
+/coverage
+
 # Visual Studio Code
 .vscode/
 

@@ -7,7 +7,7 @@ import { StatusCodes } from "http-status-codes";
 export const routes = Router()
 
 routes.get('/',(req, res)=>{
-    throw new BadRequestError('Error da rota')
+    res.send('Bem vindo a API')
 })
 
 routes.post('/subject', new SubjectController().create)
