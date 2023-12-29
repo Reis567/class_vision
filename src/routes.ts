@@ -23,7 +23,8 @@ routes.post('/room', new RoomController().create)
 routes.put('/room/:id', new RoomController().updateById);
 // Get by ID
 routes.get('/room/:id', new RoomController().getById);
-
+// Delete by ID
+routes.get('/room/:id', new RoomController().deleteById);
 
 //Room relations routes
 routes.post('/room/:idRoom/create', new RoomController().createVideo)
