@@ -116,5 +116,18 @@ export class RoomController {
 
         return res.status(StatusCodes.OK).json(room);
     }
+    async deleteById(req: Request, res: Response) {
+        const { id } = req.params;
+
+        const room = await roomRepository.findOneBy({ id: Number(id) });
+
+        if (!room) {
+            throw new NotFoundError('Aula não encontrada');
+        }
+
+        await roomRepository.remove(room);
+
+        return res.status(StatusCodes.NO_CONTENT).send();
+    }
     
 }
