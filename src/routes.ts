@@ -31,6 +31,8 @@ routes.delete('/room/:id', new RoomController().deleteById);
 routes.post('/subject', new SubjectController().create)
 //GetAll
 routes.get('/subject', new SubjectController().getAll)
+// Update by id
+routes.put('/subject/:id', new SubjectController().updateById);
 
 
 
