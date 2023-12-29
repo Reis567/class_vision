@@ -12,6 +12,8 @@ routes.get('/',(req, res)=>{
 })
 
 //User routes
+
+//Create
 routes.post('/user', new UserController().create)
 
 
