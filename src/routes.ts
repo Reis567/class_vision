@@ -33,6 +33,10 @@ routes.post('/subject', new SubjectController().create)
 routes.get('/subject', new SubjectController().getAll)
 // Update by id
 routes.put('/subject/:id', new SubjectController().updateById);
+// Delete by ID
+routes.delete('/subject/:id', new SubjectController().deleteById);
+
+
 
 
 
