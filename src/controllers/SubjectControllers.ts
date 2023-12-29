@@ -15,6 +15,11 @@ export class SubjectController {
         await subjectRepository.save(newSubject)
         return res.status(StatusCodes.CREATED).json(newSubject)
     }
+    async getAll(req: Request, res: Response) {
+        const subjects = await subjectRepository.find();
+
+        return res.status(StatusCodes.OK).json(subjects);
+    }
     async updateById(req: Request, res: Response) {
         const { id } = req.params;
         const { name } = req.body;
