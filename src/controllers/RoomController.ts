@@ -74,4 +74,28 @@ export class RoomController {
         })
         return res.status(StatusCodes.OK).json(rooms)
     }
+
+    async updateById(req: Request, res: Response) {
+        const { id } = req.params;
+        const { name, description } = req.body;
+    
+        const room = await roomRepository.findOneBy({ id: Number(id) });
+    
+        if (!room) {
+            throw new NotFoundError('Aula não encontrada');
+        }
+    
+        if (name !== undefined && name !== null) {
+            room.name = name;
+        }
+    
+        if (description !== undefined && description !== null) {
+            room.description = description;
+        }
+    
+        await roomRepository.save(room);
+    
+        return res.status(StatusCodes.OK).json(room);
+    }
+    
 }
