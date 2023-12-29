@@ -27,7 +27,10 @@ routes.delete('/room/:id', new RoomController().deleteById);
 
 
 //Subject routes
+//Create
 routes.post('/subject', new SubjectController().create)
+//GetAll
+routes.get('/subject', new SubjectController().getAll)
 
 
 
