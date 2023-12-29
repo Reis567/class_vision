@@ -10,8 +10,6 @@ routes.get('/',(req, res)=>{
     res.send('Bem vindo a API')
 })
 
-routes.post('/subject', new SubjectController().create)
-
 
 //Room routes
 
@@ -25,6 +23,15 @@ routes.put('/room/:id', new RoomController().updateById);
 routes.get('/room/:id', new RoomController().getById);
 // Delete by ID
 routes.delete('/room/:id', new RoomController().deleteById);
+
+
+
+//Subject routes
+routes.post('/subject', new SubjectController().create)
+
+
+
+
 
 //Room relations routes
 routes.post('/room/:idRoom/create', new RoomController().createVideo)
