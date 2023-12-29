@@ -14,6 +14,7 @@ routes.post('/subject', new SubjectController().create)
 
 
 //Room routes
+
 //Read
 routes.get('/room', new RoomController().list)
 //Create
