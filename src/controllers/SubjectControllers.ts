@@ -52,4 +52,15 @@ export class SubjectController {
 
         return res.status(StatusCodes.NO_CONTENT).send();
     }
+    async getById(req: Request, res: Response) {
+        const { id } = req.params;
+
+        const subject = await subjectRepository.findOneBy({ id: Number(id) });
+
+        if (!subject) {
+            throw new NotFoundError('Disciplina não encontrada');
+        }
+
+        return res.status(StatusCodes.OK).json(subject);
+    }
 }
