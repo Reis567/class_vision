@@ -3,12 +3,16 @@ import { SubjectController } from "./controllers/SubjectControllers";
 import { RoomController } from "./controllers/RoomController";
 import { ApiError ,BadRequestError} from "./helpers/api-errors";
 import { StatusCodes } from "http-status-codes";
+import { UserController } from "./controllers/UserController";
 
 export const routes = Router()
 
 routes.get('/',(req, res)=>{
     res.send('Bem vindo a API')
 })
+
+//User routes
+routes.post('/user', new UserController().create)
 
 
 //Room routes
