@@ -13,12 +13,14 @@ routes.get('/',(req, res)=>{
 routes.post('/subject', new SubjectController().create)
 
 
-
+//Room routes
+//Read
 routes.get('/room', new RoomController().list)
-
+//Create
 routes.post('/room', new RoomController().create)
+// Update
+routes.put('/room/:id', new RoomController().updateById);
 
-
+//Room relations routes
 routes.post('/room/:idRoom/create', new RoomController().createVideo)
-
 routes.post('/room/:idRoom/subject', new RoomController().roomSubject)
