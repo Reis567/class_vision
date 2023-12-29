@@ -35,6 +35,8 @@ routes.get('/subject', new SubjectController().getAll)
 routes.put('/subject/:id', new SubjectController().updateById);
 // Delete by ID
 routes.delete('/subject/:id', new SubjectController().deleteById);
+// Get by ID
+routes.get('/subject/:id', new SubjectController().getById);
 
 
 
