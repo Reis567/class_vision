@@ -15,12 +15,15 @@ routes.post('/subject', new SubjectController().create)
 
 //Room routes
 
-//Read
+//GetAll
 routes.get('/room', new RoomController().list)
 //Create
 routes.post('/room', new RoomController().create)
-// Update
+// Update by id
 routes.put('/room/:id', new RoomController().updateById);
+// Get by ID
+routes.get('/room/:id', new RoomController().getById);
+
 
 //Room relations routes
 routes.post('/room/:idRoom/create', new RoomController().createVideo)

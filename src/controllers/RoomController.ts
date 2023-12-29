@@ -101,7 +101,14 @@ export class RoomController {
     async getById(req: Request, res: Response) {
         const { id } = req.params;
 
-        const room = await roomRepository.findOneBy({ id: Number(id) });
+        const room = await roomRepository.findOne({
+            where:{
+                id: Number(id),
+            },
+            relations:{
+                subjects:true,
+                videos:true
+            }})
 
         if (!room) {
             throw new NotFoundError('Aula não encontrada');
