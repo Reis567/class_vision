@@ -15,6 +15,8 @@ routes.get('/',(req, res)=>{
 
 //Create
 routes.post('/user', new UserController().create)
+//Login 
+routes.post('/login',new UserController().login)
 
 
 //Room routes
