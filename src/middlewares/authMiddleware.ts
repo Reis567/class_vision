@@ -1,4 +1,4 @@
-import { jwt } from 'jsonwebtoken';
+import jwt  from 'jsonwebtoken';
 import { Request, Response , NextFunction } from "express"
 import { UnauthoraError } from '../helpers/api-errors';
 import { userRepository } from '../repositories/UserRepository';
