@@ -17,6 +17,8 @@ routes.get('/',(req, res)=>{
 routes.post('/user', new UserController().create)
 //Login 
 routes.post('/login',new UserController().login)
+//Login 
+routes.get('/profile',new UserController().getProfile)
 
 
 //Room routes
