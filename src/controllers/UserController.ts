@@ -53,7 +53,7 @@ export class UserController {
 
     async getProfile(req: Request, res: Response){
 
-        return res.status(StatusCodes.OK).json('')
+        return res.status(StatusCodes.OK).json(req.user)
 
     }
 }
