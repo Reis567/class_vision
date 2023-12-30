@@ -5,6 +5,10 @@ import bcrypt from 'bcrypt'
 import { StatusCodes } from "http-status-codes";
 import jwt from 'jsonwebtoken'
 
+type JwtPayload = {
+    id:number
+}
+
 
 export class UserController {
     async create(req: Request, res: Response){
@@ -59,7 +63,7 @@ export class UserController {
         }
 
         const token = authorization.split(' ')[1]
-        const {} = jwt.verify(token , process.env.JWT_PASS??'JWT_PASS')
+        const {id} = jwt.verify(token , process.env.JWT_PASS??'JWT_PASS') as JwtPayload
 
 
     }
