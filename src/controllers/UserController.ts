@@ -66,5 +66,7 @@ export class UserController {
         const {id} = jwt.verify(token , process.env.JWT_PASS??'JWT_PASS') as JwtPayload
 
 
+        const user = await userRepository.findOneBy({id})
+
     }
 }
