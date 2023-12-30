@@ -50,4 +50,14 @@ export class UserController {
 
         return res.status(StatusCodes.OK).json({user:userLogin,token:token})
     }
+
+    async getProfile(req: Request, res: Response){
+        const {authorization} = req.headers
+
+        if(!authorization){
+            throw new UnauthoraError('Não autorizado')
+        }
+
+
+    }
 }
