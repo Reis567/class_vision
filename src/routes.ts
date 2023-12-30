@@ -4,6 +4,7 @@ import { RoomController } from "./controllers/RoomController";
 import { ApiError ,BadRequestError} from "./helpers/api-errors";
 import { StatusCodes } from "http-status-codes";
 import { UserController } from "./controllers/UserController";
+import { AuthMiddleware } from "./middlewares/authMiddleware";
 
 export const routes = Router()
 
@@ -18,35 +19,35 @@ routes.post('/user', new UserController().create)
 //Login 
 routes.post('/login',new UserController().login)
 //Get Profile
-routes.get('/profile',new UserController().getProfile)
+routes.get('/profile',AuthMiddleware,new UserController().getProfile)
 
 
 //Room routes
 
 //GetAll
-routes.get('/room', new RoomController().list)
+routes.get('/room',AuthMiddleware, new RoomController().list)
 //Create
-routes.post('/room', new RoomController().create)
+routes.post('/room',AuthMiddleware, new RoomController().create)
 // Update by id
-routes.put('/room/:id', new RoomController().updateById);
+routes.put('/room/:id',AuthMiddleware, new RoomController().updateById);
 // Get by ID
-routes.get('/room/:id', new RoomController().getById);
+routes.get('/room/:id',AuthMiddleware, new RoomController().getById);
 // Delete by ID
-routes.delete('/room/:id', new RoomController().deleteById);
+routes.delete('/room/:id',AuthMiddleware, new RoomController().deleteById);
 
 
 
 //Subject routes
 //Create
-routes.post('/subject', new SubjectController().create)
+routes.post('/subject',AuthMiddleware, new SubjectController().create)
 //GetAll
-routes.get('/subject', new SubjectController().getAll)
+routes.get('/subject',AuthMiddleware, new SubjectController().getAll)
 // Update by id
-routes.put('/subject/:id', new SubjectController().updateById);
+routes.put('/subject/:id',AuthMiddleware, new SubjectController().updateById);
 // Delete by ID
-routes.delete('/subject/:id', new SubjectController().deleteById);
+routes.delete('/subject/:id',AuthMiddleware, new SubjectController().deleteById);
 // Get by ID
-routes.get('/subject/:id', new SubjectController().getById);
+routes.get('/subject/:id',AuthMiddleware, new SubjectController().getById);
 
 
 
@@ -55,5 +56,5 @@ routes.get('/subject/:id', new SubjectController().getById);
 
 
 //Room relations routes
-routes.post('/room/:idRoom/create', new RoomController().createVideo)
-routes.post('/room/:idRoom/subject', new RoomController().roomSubject)
+routes.post('/room/:idRoom/create',AuthMiddleware, new RoomController().createVideo)
+routes.post('/room/:idRoom/subject',AuthMiddleware, new RoomController().roomSubject)
