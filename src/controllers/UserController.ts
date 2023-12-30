@@ -5,10 +5,6 @@ import bcrypt from 'bcrypt'
 import { StatusCodes } from "http-status-codes";
 import jwt from 'jsonwebtoken'
 
-type JwtPayload = {
-    id:number
-}
-
 
 export class UserController {
     async create(req: Request, res: Response){
@@ -56,25 +52,8 @@ export class UserController {
     }
 
     async getProfile(req: Request, res: Response){
-        const {authorization} = req.headers
 
-        if(!authorization){
-            throw new UnauthoraError('Não autorizado')
-        }
-
-        const token = authorization.split(' ')[1]
-        const {id} = jwt.verify(token , process.env.JWT_PASS??'JWT_PASS') as JwtPayload
-
-
-        const user = await userRepository.findOneBy({id})
-
-        if(!user){
-            throw new UnauthoraError('Não autorizado')
-        }
-
-        const {password:_, ...userVerified} = user
-
-        return res.status(StatusCodes.OK).json(userVerified)
+        return res.status(StatusCodes.OK).json('')
 
     }
 }
