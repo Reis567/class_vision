@@ -59,6 +59,7 @@ export class UserController {
         }
 
         const token = authorization.split(' ')[1]
+        const {} = jwt.verify(token , process.env.JWT_PASS??'JWT_PASS')
 
 
     }
