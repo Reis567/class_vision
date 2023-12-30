@@ -72,5 +72,9 @@ export class UserController {
             throw new UnauthoraError('Não autorizado')
         }
 
+        const {password:_, ...userVerified} = user
+
+        return res.status(StatusCodes.OK).json(userVerified)
+
     }
 }
