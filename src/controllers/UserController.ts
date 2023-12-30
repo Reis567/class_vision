@@ -58,6 +58,8 @@ export class UserController {
             throw new UnauthoraError('Não autorizado')
         }
 
+        const token = authorization.split(' ')[1]
+
 
     }
 }
