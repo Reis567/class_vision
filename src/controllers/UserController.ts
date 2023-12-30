@@ -68,5 +68,9 @@ export class UserController {
 
         const user = await userRepository.findOneBy({id})
 
+        if(!user){
+            throw new UnauthoraError('Não autorizado')
+        }
+
     }
 }
